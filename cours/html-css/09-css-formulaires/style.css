@@ -117,6 +117,13 @@ input:valid {
     border-color: seagreen;
 }
 
-input:invalid {
+input:user-invalid {
     border-color: crimson;
+    background-color: rgb(255, 188, 188);
+}
+
+input:required,
+select:required,
+textarea:required {
+    border-left-width: 5px;
 }
