@@ -36,6 +36,8 @@
         <input type="radio" id="deja-oui" name="deja_chat" value="oui">
         <label for="deja-non">Non</label>
         <input type="radio" id="deja-non" name="deja_chat" value="non">
+        <label for="deja-incertain">Je ne sais pas</label>
+        <input type="radio" id="deja-incertain" name="deja_chat" value="ne-sais-pas">
     </p>
     <p>
         <label for="message">Message</label>
@@ -53,3 +55,20 @@
         <button type="submit">Envoyer la demande</button>
     </p>
 </form>
+
+<script>
+    const champVisite = document.getElementById("visite");
+    const aujourdHui = new Date();
+    const dansTrenteJours = new Date(aujourdHui);
+    dansTrenteJours.setDate(dansTrenteJours.getDate() + 30);
+
+    const formaterDate = (date) => {
+        const annee = date.getFullYear();
+        const mois = String(date.getMonth() + 1).padStart(2, "0");
+        const jour = String(date.getDate()).padStart(2, "0");
+        return `${annee}-${mois}-${jour}`;
+    };
+
+    champVisite.min = formaterDate(aujourdHui);
+    champVisite.max = formaterDate(dansTrenteJours);
+</script>
